@@ -191,6 +191,42 @@ public class UserDAO extends ElementDAOImp<User> {
             if((session1 != null) && session1.isOpen()) session1.close();
         }
         return result;
-        //thats all
+    }
+
+    /**
+     *
+     * @param t - max count of days user can keep book
+     * @return list each element like : (UserName) (UserAge)
+     */
+    public ArrayList<String> getTodayDebtors(long t){
+        Session session1 = null;
+        ArrayList<String> result = new ArrayList<>();
+        try{session1 = HibernateUtil.getSession();
+            session1.beginTransaction();
+            Query query = session1.createQuery("select ur.user_ID, ug.takeDate, ug.returnDate  FROM Usage ug" +
+                    " inner join User ur on ug.user_ID=ur.user_ID " +
+                    "where  ug.returnDate is null");
+            ArrayList<Object[]> usagesusers = (ArrayList<Object[]>) query.list();
+            ArrayList<Integer> userID = new ArrayList<>();
+            //usersID - list of user ids that are debtors
+
+            for(Object[] obj: usagesusers){
+                int id = (int)obj[0];
+                LocalDate take = (LocalDate) obj[1];
+                Optional<LocalDate> ret = (Optional<LocalDate>) obj[2];
+                long days = ChronoUnit.DAYS.between(take , ret.orElse(LocalDate.now()));
+                if((days > t) && (!userID.contains(id)) ) userID.add(id);
+            }
+            for(int id:userID){
+                query = session1.createQuery("select concat(u.name, ' ', u.age) from  User u" +
+                        " where u.user_ID = :id");
+                query.setParameter("id",id);
+
+                result.add(String.valueOf(query.uniqueResult()));
+            }
+        } finally{
+            if((session1 != null) && session1.isOpen()) session1.close();
+        }
+        return result;
     }
 }
