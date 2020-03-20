@@ -12,16 +12,12 @@
 
 <dependencies>
 
-    <!--driver for connection to MYSql database -->
-
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.13</version>
     </dependency>
 
-    <!-- Hibernate -->
-    <!-- to start need only this -->
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
@@ -40,74 +36,6 @@
         <version>5.1.0.Final</version>
     </dependency>
 
-    <!-- Hibernate annotation -->
-
-
-
-
-    <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
-
-
-    <!--END Hibernate
-    <properties>
-    <hibernate-version>5.0.1.Final</hibernate-version>
-</properties>
-
-
-    <dependency>
-        <groupId>hibernate-commons-annotations</groupId>
-        <artifactId>hibernate-commons-annotations</artifactId>
-        <version>3.0.0.GA</version>
-    </dependency>
-
-
-
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-osgi</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-
-    <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>1.4.187</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.4</version>
-        <scope>provided</scope>
-    </dependency>
-
-
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-envers</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-c3p0</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-proxool</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-infinispan</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-ehcache</artifactId>
-        <version>${hibernate-version}</version>
-    </dependency>
-    -->
 
 </dependencies>
 

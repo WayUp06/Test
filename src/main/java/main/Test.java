@@ -1,5 +1,6 @@
 package main;
 
+import DAO.BookDAO;
 import DAO.UserDAO;
 import org.hibernate.Session;
 
@@ -11,6 +12,7 @@ public class Test{
         try(Session session = HibernateUtil.getSession()){
             session.beginTransaction();
             UserDAO u = new UserDAO();
+            BookDAO bookDAO = new BookDAO();
             /*ArrayList<String> l = bookDAO.getCountOfBookUsageByExamples("Book1");
             for(String s:l) System.out.println(s);*/
             //System.out.println(u.getUserAverageAgeByAuthor("First", "Author1"));
