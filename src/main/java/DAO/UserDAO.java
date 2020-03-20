@@ -191,6 +191,6 @@ public class UserDAO extends ElementDAOImp<User> {
             if((session1 != null) && session1.isOpen()) session1.close();
         }
         return result;
-
+        //thats all
     }
 }
