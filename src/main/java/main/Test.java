@@ -4,6 +4,8 @@ import DAO.BookDAO;
 import DAO.UserDAO;
 import org.hibernate.Session;
 
+import java.util.ArrayList;
+
 public class Test{
     public static void main(String[] args) {
 
@@ -13,9 +15,9 @@ public class Test{
             BookDAO bookDAO = new BookDAO();
             /*ArrayList<String> l = bookDAO.getCountOfBookUsageByExamples("Book1");
             for(String s:l) System.out.println(s);*/
-            System.out.println(u.getUserAverageAgeByAuthor("First", "Author1"));
-
-
+            //System.out.println(u.getUserAverageAgeByAuthor("First", "Author1"));
+            ArrayList<String> l = u.getDebtorsInPast(1);
+            for(String s:l) System.out.println(s);
 
             session.getTransaction().commit();
 
